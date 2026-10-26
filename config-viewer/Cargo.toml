@@ -1,0 +1,15 @@
+[package]
+name = "cryfs-config-viewer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cryfs-crypto = { workspace = true }
+cryfs-config = { workspace = true }
+cryfs-utils = { workspace = true }
+binrw = { workspace = true }
+anyhow = { workspace = true }
+thiserror = "2.0.21"
+binary-layout = { workspace = true }
+serde_json = "1.0.154"
+clap = { workspace = true, features = ["derive"] }
