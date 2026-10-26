@@ -2,9 +2,9 @@ use anyhow::{Context, Result, bail, ensure};
 use binary_layout::prelude::*;
 use binrw::{BinRead, BinWrite};
 use byte_unit::Byte;
-use log::{info, trace};
+use log::trace;
 use serde::{Deserialize, Serialize};
-use std::{collections::HashSet, convert::Infallible, fmt::Debug, num::NonZeroU32};
+use std::{convert::Infallible, fmt::Debug, num::NonZeroU32};
 use thiserror::Error;
 
 use super::{
@@ -23,16 +23,6 @@ pub enum IntegrityViolationError {
         id_from_filename: BlockId,
         id_from_header: BlockId,
     },
-
-    #[error(
-        "Integrity Violation: {block:?} should exist but we didn't find it. Did an attacker delete it?"
-    )]
-    MissingBlock { block: BlockId },
-
-    #[error(
-        "Integrity Violation: {blocks:?} should exist but we didn't find them. Did an attacker delete them?"
-    )]
-    MissingBlocks { blocks: HashSet<BlockId> },
 }
 
 const FORMAT_VERSION_HEADER: u16 = 1;
