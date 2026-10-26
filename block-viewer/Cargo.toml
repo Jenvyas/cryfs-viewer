@@ -1,0 +1,27 @@
+[package]
+name = "cryfs-block-viewer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+binrw = { workspace = true }
+binary-layout = { workspace = true }
+cryfs-config = { workspace = true }
+cryfs-crypto = { workspace = true }
+cryfs-utils = { workspace = true }
+cryfs-blobstore = { git = "https://github.com/cryfs/cryfs.git" }
+cryfs-blockstore = { git = "https://github.com/cryfs/cryfs.git" }
+cryfs-config-viewer = { path = "../config-viewer" }
+clap = { workspace = true, features = ["derive"] }
+anyhow = { workspace = true }
+generic-array = "1.4.5"
+rand = "0.10.3"
+hex = "0.4.3"
+byte-unit = "5.2.6"
+serde = "1.0.229"
+thiserror = "2.0.21"
+base64 = "0.23.1"
+libc = "0.2.191"
+errno = "0.3.14"
+log = "0.4.34"
+colog = "1.4.0"
