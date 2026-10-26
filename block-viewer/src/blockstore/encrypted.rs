@@ -85,7 +85,7 @@ impl<C: CipherDef, B> EncryptedBlockStore<C, B> {
             FORMAT_VERSION_HEADER.len()
         );
         trace!("Cipher prefix(Nonce): {}B", C::CIPHERTEXT_OVERHEAD_PREFIX);
-        trace!("Cipher suffix(AEAD): {}", C::CIPHERTEXT_OVERHEAD_SUFFIX);
+        trace!("Cipher suffix(AEAD): {}B", C::CIPHERTEXT_OVERHEAD_SUFFIX);
         let ciphertext = _check_and_remove_header(ciphertext)?;
         self.cipher.decrypt(ciphertext)
     }
