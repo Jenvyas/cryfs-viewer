@@ -1,5 +1,4 @@
-mod block_id;
-pub use block_id::{BLOCKID_LEN, BlockId};
+pub use cryfs_blockstore::{BLOCKID_LEN, BlockId};
 mod overhead;
 pub use overhead::Overhead;
 
