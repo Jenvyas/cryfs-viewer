@@ -44,6 +44,12 @@ pub struct InvalidBlockSizeError {
     message: String,
 }
 
+impl std::fmt::Display for InvalidBlockSizeError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Invalid block size: {}", self.message)
+    }
+}
+
 impl InvalidBlockSizeError {
     pub fn new(message: String) -> Self {
         Self { message }
