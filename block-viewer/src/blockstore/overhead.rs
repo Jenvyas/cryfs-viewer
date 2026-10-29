@@ -50,6 +50,8 @@ impl std::fmt::Display for InvalidBlockSizeError {
     }
 }
 
+impl std::error::Error for InvalidBlockSizeError {}
+
 impl InvalidBlockSizeError {
     pub fn new(message: String) -> Self {
         Self { message }
