@@ -47,4 +47,6 @@ pub struct CipherKeyArg {
     pub cipher: CipherCli,
     #[arg(long)]
     pub key: String,
+    #[arg(long)]
+    pub block_size: u64,
 }
