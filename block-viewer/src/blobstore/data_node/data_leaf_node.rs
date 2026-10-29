@@ -41,7 +41,7 @@ impl<B: BlockStore> DataLeafNode<B> {
             layout.block_size,
         );
         trace!(
-            "== Leaf node data (max {}B available in block)",
+            "== Leaf node data (max {}B available in block) ==",
             layout.max_bytes_per_leaf()
         );
         let max_bytes_per_leaf = layout.max_bytes_per_leaf();
