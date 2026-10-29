@@ -9,5 +9,7 @@ pub use encrypted::EncryptedBlockStore;
 pub use integrity::IntegrityBlockStore;
 pub use ondisk::OnDiskBlockStore;
 
+pub mod abstract_store;
+pub mod high_level;
 pub mod interface;
 pub(super) mod sysinfo;
