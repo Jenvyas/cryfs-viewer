@@ -1,4 +1,4 @@
-use std::{fs::File, io::BufReader, path::PathBuf, sync::Arc};
+use std::{fs::File, io::BufReader, path::PathBuf};
 
 use anyhow::Result;
 use blockstore::{
@@ -7,12 +7,12 @@ use blockstore::{
 use clap::Parser;
 use cryfs_config_viewer::ConfigLoader;
 use cryfs_crypto::symmetric::{Aes128Gcm, Aes256Gcm, CipherDef, EncryptionKey, XChaCha20Poly1305};
-use log::Log;
 
 use crate::{
     blockstore::BlockId,
     cli::{CipherKeyArg, ConfigPasswordArg},
 };
+mod blobstore;
 mod blockstore;
 mod cli;
 
@@ -38,7 +38,7 @@ fn load_block<C: CipherDef + 'static>(path: PathBuf, key: EncryptionKey) -> Resu
 }
 
 fn main() -> Result<()> {
-    let logger = colog::basic_builder()
+    let _logger = colog::basic_builder()
         .filter_level(log::LevelFilter::Trace)
         .init();
     let args = cli::Cli::parse();
@@ -54,7 +54,7 @@ fn main() -> Result<()> {
     };
     let enc_key = EncryptionKey::from_hex(&hex_key)?;
     let path = args.path;
-    let a = match cipher_name.as_str() {
+    match cipher_name.as_str() {
         "xchacha20-poly1305" => load_block::<XChaCha20Poly1305>(path, enc_key),
         "aes-256-gcm" => load_block::<Aes256Gcm>(path, enc_key),
         "aes-128-gcm" => load_block::<Aes128Gcm>(path, enc_key),
