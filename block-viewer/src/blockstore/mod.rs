@@ -1,6 +1,6 @@
 pub use cryfs_blockstore::{BLOCKID_LEN, BlockId};
 mod overhead;
-pub use overhead::Overhead;
+pub use overhead::{InvalidBlockSizeError, Overhead};
 
 mod encrypted;
 mod integrity;

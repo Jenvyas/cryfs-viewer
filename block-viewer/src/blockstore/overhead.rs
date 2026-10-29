@@ -43,6 +43,7 @@ impl Overhead {
 pub struct InvalidBlockSizeError {
     message: String,
 }
+
 impl InvalidBlockSizeError {
     pub fn new(message: String) -> Self {
         Self { message }
