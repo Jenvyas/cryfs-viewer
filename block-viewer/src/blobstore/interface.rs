@@ -9,11 +9,10 @@ use super::BlobId;
 
 pub const BLOBID_LEN: usize = BLOCKID_LEN;
 
-pub trait Blob: Sized + Debug {
+pub trait Blob: Sized {
     fn id(&self) -> BlobId;
     // TODO Can we make size take &self instead of &mut self? Same for other read-only functions?
     fn num_bytes(&mut self) -> Result<u64>;
-    fn resize(&mut self, new_num_bytes: u64) -> Result<()>;
 
     fn read_all(&mut self) -> Result<Data>;
     fn read(&mut self, target: &mut [u8], offset: u64) -> Result<()>;
@@ -25,7 +24,7 @@ pub trait Blob: Sized + Debug {
 }
 
 pub trait BlobStore {
-    type ConcreteBlob: Blob + Debug;
+    type ConcreteBlob: Blob;
 
     fn load(&self, id: &BlobId) -> Result<Option<Self::ConcreteBlob>>;
     fn num_nodes(&self) -> Result<u64>;
