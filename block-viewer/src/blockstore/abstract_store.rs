@@ -2,13 +2,13 @@ use anyhow::Result;
 use cryfs_blockstore::BlockId;
 use cryfs_utils::data::Data;
 
-use crate::blockstore::interface::LLBlockStore;
+use crate::blockstore::low_level::LLBlockStore;
 
-pub struct AbstractBlockStore<B: super::interface::LLBlockStore> {
+pub struct AbstractBlockStore<B: super::low_level::LLBlockStore> {
     base_store: B,
 }
 
-impl<B: super::interface::LLBlockStore> AbstractBlockStore<B> {
+impl<B: super::low_level::LLBlockStore> AbstractBlockStore<B> {
     pub fn new(base_store: B) -> Self {
         Self { base_store }
     }

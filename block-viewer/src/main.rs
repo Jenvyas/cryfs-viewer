@@ -2,7 +2,7 @@ use std::{fs::File, io::BufReader, path::PathBuf};
 
 use anyhow::Result;
 use blockstore::{
-    EncryptedBlockStore, IntegrityBlockStore, OnDiskBlockStore, interface::BlockStoreReader,
+    EncryptedBlockStore, IntegrityBlockStore, OnDiskBlockStore, low_level::BlockStoreReader,
 };
 use clap::Parser;
 use cryfs_config_viewer::ConfigLoader;

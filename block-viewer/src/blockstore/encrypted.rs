@@ -4,7 +4,7 @@ use log::trace;
 
 use super::{
     BlockId, Overhead,
-    interface::{BlockStoreReader, LLBlockStore},
+    low_level::{BlockStoreReader, LLBlockStore},
 };
 use cryfs_crypto::symmetric::CipherDef;
 use cryfs_utils::data::Data;

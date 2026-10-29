@@ -10,6 +10,8 @@ pub use integrity::IntegrityBlockStore;
 pub use ondisk::OnDiskBlockStore;
 
 pub mod abstract_store;
-pub mod high_level;
-pub mod interface;
+mod high_level;
+pub use high_level::Block;
+pub use high_level::BlockStore;
+pub mod low_level;
 pub(super) mod sysinfo;

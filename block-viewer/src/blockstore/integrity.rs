@@ -9,7 +9,7 @@ use thiserror::Error;
 
 use super::{
     BLOCKID_LEN, BlockId, Overhead,
-    interface::{BlockStoreReader, LLBlockStore},
+    low_level::{BlockStoreReader, LLBlockStore},
 };
 
 use cryfs_utils::{binary::read_nonzerou32, data::Data};

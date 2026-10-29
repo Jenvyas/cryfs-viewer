@@ -9,7 +9,7 @@ use std::path::{Path, PathBuf};
 use super::sysinfo;
 use super::{
     BLOCKID_LEN, BlockId, Overhead,
-    interface::{BlockStoreReader, LLBlockStore},
+    low_level::{BlockStoreReader, LLBlockStore},
 };
 use cryfs_utils::{data::Data, path::path_join};
 
