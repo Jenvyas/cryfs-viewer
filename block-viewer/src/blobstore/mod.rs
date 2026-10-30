@@ -3,3 +3,8 @@ mod interface;
 pub use blob_id::BlobId;
 mod data_node;
 pub use data_node::DataNodeStore;
+mod on_blocks;
+pub use interface::{Blob, BlobStore};
+pub use on_blocks::{BlobOnBlocks, BlobStoreOnBlocks};
+mod fsblobstore;
+pub use fsblobstore::{FsBlob, FsBlobStore};

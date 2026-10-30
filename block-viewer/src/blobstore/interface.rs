@@ -1,6 +1,5 @@
 use anyhow::Result;
 use byte_unit::Byte;
-use std::fmt::Debug;
 
 use crate::blockstore::{BLOCKID_LEN, BlockId};
 use cryfs_utils::data::Data;
@@ -20,7 +19,7 @@ pub trait Blob: Sized {
     // TODO `num_nodes` and `all_blocks` is a leaky abstraction because it gives away that we use blocks. Remove these.
     fn num_nodes(&mut self) -> Result<u64>;
 
-    fn all_blocks(&self) -> Result<impl Iterator<Item = Result<BlockId>>>;
+    fn all_blocks(&self) -> Result<Box<dyn Iterator<Item = Result<BlockId>>>>;
 }
 
 pub trait BlobStore {

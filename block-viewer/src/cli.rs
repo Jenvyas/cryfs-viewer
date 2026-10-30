@@ -49,4 +49,6 @@ pub struct CipherKeyArg {
     pub key: String,
     #[arg(long)]
     pub block_size: u64,
+    #[arg(long)]
+    pub root_blob_id: String,
 }
